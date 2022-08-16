@@ -53,9 +53,9 @@ pipeline {
                         sh 'git config --global user.name "jenkins"'
                         sh "git remote set-url origin https://${USER}:${PASS}@github.com/naveenkumar94900/versioning-app.git"
                         sh 'git add .'
-                        sh 'git remote add origin https://github.com/naveenkumar94900/versioning-app.git'
+                        sh 'git remote add nvn https://github.com/naveenkumar94900/versioning-app.git'
                         sh 'git commit -m "version bump"'
-                        sh 'git push origin main'
+                        sh 'git push nvn main'
                     }
                 }
             }
