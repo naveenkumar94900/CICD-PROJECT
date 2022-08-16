@@ -54,7 +54,7 @@ pipeline {
                         sh "git remote add origin https://github.com/naveenkumar94900/versioning-app.git"
                         sh 'git add .'
                         sh 'git commit -m "version bump"'
-                        sh 'git push origin main'
+                        sh "git push origin main"
                     }
                 }
             }
