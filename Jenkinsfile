@@ -52,7 +52,6 @@ pipeline {
                         sh 'git config --global user.email "jenkins@example.com"'
                         sh 'git config --global user.name "jenkins"'
                         sh "git remote set-url origin https://${USER}:${PASS}@gitlab.com/naveen08022000/version.git"
-                        sh 'git pull origin main'
                         sh 'git add .'
                         sh 'git commit -m "version bump"'
                         sh 'git status'
