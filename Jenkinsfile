@@ -55,7 +55,7 @@ pipeline {
                         sh 'git reset --mixed origin/main'
                         sh 'git add .'
                         sh 'git commit -m "version bump"'
-                        sh 'git push origin main'
+                        sh 'git push origin master'
                     }
                 }
             }
