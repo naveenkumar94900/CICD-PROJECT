@@ -49,6 +49,7 @@ pipeline {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'PASS', usernameVariable: 'USER')])                   {
                         // git config here for the first time run
+                        sh 'git config --global --unset http.proxy'
                         sh 'git config --global user.email "jenkins@example.com"'
                         sh 'git config --global user.name "jenkins"'
                         sh "git remote set-url origin https://${USER}:${PASS}@github.com/naveenkumar94900/versioning-app.git"
