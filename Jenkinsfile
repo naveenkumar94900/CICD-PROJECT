@@ -47,15 +47,13 @@ pipeline {
         stage('commit version update') {
             steps {
                 script {
-                    withCredentials([usernamePassword(credentialsId: 'gitlab-credenntials', passwordVariable: 'PASS', usernameVariable: 'USER')])                   {
+                    withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'PASS', usernameVariable: 'USER')])                   {
                         // git config here for the first time run
                         sh 'git config --global user.email "jenkins@example.com"'
                         sh 'git config --global user.name "jenkins"'
-                        sh "git remote set-url origin https://${USER}:${PASS}@gitlab.com/naveen08022000/version.git"
-                        sh 'git branch -M main'
+                        sh "git remote set-url origin https://${USER}:${PASS}@gitlab.com/naveenkumar94900/version.git"
                         sh 'git add .'
                         sh 'git commit -m "version bump"'
-                        sh 'git status'
                         sh 'git push origin main'
                     }
                 }
