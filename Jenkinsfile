@@ -40,7 +40,10 @@ pipeline {
         stage('deploy') {
             steps {
                 script {
-                    echo 'deploying docker image to EC2...'
+                         def dockercmd = "docker run -d -p 8080:8080 naveen0802/java-project-image:${IMAGE_NAME}"
+                         sshagent(['ec2-server']) {
+                             sh "ssh -o StrictHostKeyChecking=no ec2-user@43.205.124.92 ${dockercmd}"
+                    }
                 }
             }
         }
